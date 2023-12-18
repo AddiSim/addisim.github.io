@@ -11,7 +11,7 @@ const phrases = [
 
   const enterView = document.getElementById("EnterView");
   const languageText = document.getElementById("languageText");
-  const homeScreen = document.getElementById("homeScreen");
+  
   
   let currentIndex = 0;
   
@@ -44,3 +44,22 @@ const phrases = [
   
   // Start the animation when the page loads
   window.addEventListener("load", displayNextPhrase);
+
+  function hideAndShow(section){
+    var element = document.getElementsByClassName("home_aboutme")[0];
+    element.style.opacity = 0;
+
+    setTimeout(() => {
+      if (section === 'projects'){
+        element.innerHTML = '<p>Project 1</p><p>Project 2</p>';
+      } else if (section === 'contact'){
+        element.innerHTML = '<p>Contact information</p>';
+      } else if (section === 'home'){
+        element.innerHTML = '<span>Born in 1996</span><span>in Neskaupstaður, Iceland.</span><span>Currently</span><span>studying</span><span>computer science</span><span>at Háskóli Íslands.</span><span>Have great</span><span>interest</span><span>in web design</span><span>and data science.</span>'
+      }
+
+      setTimeout(() => {
+        element.style.opacity = 1;
+      }, 200);
+    }, 500);
+  }
